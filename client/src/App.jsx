@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './App.module.css';
 // import piazza from './piazza.jpeg';
 
@@ -15,6 +15,16 @@ function App() {
   let [topCaption, setTopCaption] = useState('')
   let [bottomCaption, setBottomCaption] = useState('')
 
+  const [memeList, setMemeList] = useState([])
+
+  useEffect(() => {
+    fetch("https://api.imgflip.com/get_memes")
+      .then(res => res.json())
+      .then(data => setMemeList(data.data.memes))
+  },[])
+
+  console.log(memeList, 'look here')
+
   const handleChange = (event) => {
     let label = event.target.getAttribute('data-label')
     if (label === 'Top Caption') {
@@ -24,7 +34,6 @@ function App() {
       setBottomCaption(event.target.value)
     }
   }
-  console.log(topCaption, bottomCaption, 'LOOK HERE')
   
   return (
     <div className={container}>
