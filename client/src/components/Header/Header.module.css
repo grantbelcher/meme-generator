@@ -1,4 +1,17 @@
-.header {
-  background: pink;
-  color: red;
+header {
+  background-color: blue;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
+
+.icon {
+  height: 50px;
+}
+
+.left {
+  display: flex;
+  align-items: center;
+}
+

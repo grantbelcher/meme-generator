@@ -1,16 +1,19 @@
 import React from 'react';
 import styles from './Header.module.css';
+import logo from './MJ.jpeg';
 
-import Test from '../Test.jsx'
-
-const { header } = styles
+const { left, icon } = styles;
 
 const Header = () => {
   return (
     <>
-      <h1 className={header}>HEADER</h1>
-      <div>Testing global styles level 1</div>
-      <Test />
+      <header>
+        <div className={left}>
+          <img className={icon} src={logo} alt="logo" />
+          <h2>Meme Generator</h2>
+        </div>
+          <h4>Generate Dankness</h4>
+      </header>
     </>
   )
 }
