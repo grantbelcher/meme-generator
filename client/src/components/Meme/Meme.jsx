@@ -4,13 +4,15 @@ import piazza from './piazza.jpeg'
 
 const { container, top, bottom } = styles
 
-const Meme = ({ caption } = props) => {
+const Meme = ({ caption, meme } = props) => {
+
   let { topCaption, bottomCaption  } = caption;
+
   return (
     <div 
       className={container}
       style={{
-        backgroundImage: `url(${piazza})`,
+        backgroundImage: `url(${meme.url})`,
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',

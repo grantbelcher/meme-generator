@@ -50,7 +50,7 @@ function App() {
       <Header />
       <Inputs handleChange={handleChange} />
       <Button clickHandler={handleClick} />
-      <Meme caption={{ topCaption, bottomCaption }}/>
+      <Meme meme={currentMeme} caption={{ topCaption, bottomCaption }}/>
       {/* <img src={piazza} alt="" /> */}
     </div>
   );
