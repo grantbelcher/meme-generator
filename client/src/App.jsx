@@ -16,14 +16,22 @@ function App() {
   let [bottomCaption, setBottomCaption] = useState('')
 
   const [memeList, setMemeList] = useState([])
+  const [currentMeme, setCurrentMeme] = useState({})
+
+  const handleClick = () => {
+    // generate random number between 0 and last index of memes
+    const randomIndex = Math.floor(Math.random() * memeList.length)
+    setCurrentMeme(memeList[randomIndex])
+  }
 
   useEffect(() => {
     fetch("https://api.imgflip.com/get_memes")
       .then(res => res.json())
-      .then(data => setMemeList(data.data.memes))
+      .then(data => {
+        setMemeList(data.data.memes)
+        setCurrentMeme(data.data.memes[0])
+      })
   },[])
-
-  console.log(memeList, 'look here')
 
   const handleChange = (event) => {
     let label = event.target.getAttribute('data-label')
@@ -34,12 +42,14 @@ function App() {
       setBottomCaption(event.target.value)
     }
   }
-  
+
+  console.log(currentMeme)
+
   return (
     <div className={container}>
       <Header />
       <Inputs handleChange={handleChange} />
-      <Button />
+      <Button clickHandler={handleClick} />
       <Meme caption={{ topCaption, bottomCaption }}/>
       {/* <img src={piazza} alt="" /> */}
     </div>

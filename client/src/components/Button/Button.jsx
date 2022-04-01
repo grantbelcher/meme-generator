@@ -1,8 +1,8 @@
 import React from 'react';
 
-const Button = () => {
+const Button = ({ clickHandler }) => {
   return (
-    <button>Get a new meme image</button>
+    <button onClick={clickHandler}>Get a new meme image</button>
   )
 }
 
